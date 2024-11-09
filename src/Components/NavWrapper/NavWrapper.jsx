@@ -23,7 +23,11 @@ function NavWrapper() {
         >
           PRODUCT
         </button>
-        <button className="button-4" role="button">
+        <button
+          onClick={() => navigate("/login")}
+          className="button-4"
+          role="button"
+        >
           LOGIN
         </button>
       </div>

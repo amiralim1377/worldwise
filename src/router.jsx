@@ -3,6 +3,8 @@ import HomePage from "./Pages/HomePage/HomePage";
 import AppLayout from "./AppLayout/AppLayout";
 import Pricing from "./Pages/Pricing/Pricing";
 import Product from "./Pages/Product/Product";
+import Login from "./Pages/Login/Login";
+import SingUp from "./Pages/SingUp/SingUp";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Product />,
+        element: <Login />,
+      },
+      {
+        path: "singup",
+        element: <SingUp />,
       },
     ],
   },

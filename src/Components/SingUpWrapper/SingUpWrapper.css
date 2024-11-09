@@ -1,0 +1,151 @@
+.signupformwrapper {
+  width: 480px;
+  height: 350px;
+  background-color: #42484d;
+  padding: 25px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  justify-content: space-between;
+}
+.emailwrapper {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.passwordpass {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.emailwrapper input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.emailwrapper p {
+  font-family: "Roboto Mono", serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+  text-align: left;
+  width: 100%;
+  height: 30px;
+}
+
+.passwordpass p {
+  font-family: "Roboto Mono", serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+  text-align: left;
+  width: 100%;
+  height: 30px;
+}
+
+.passwordpass input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+/* button */
+
+.btnloginwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.button-37 {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 15px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-37:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-37 {
+    padding: 10px 30px;
+  }
+}
+
+/* 38 */
+
+.button-38 {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 15px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-38:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-38 {
+    padding: 10px 30px;
+  }
+}

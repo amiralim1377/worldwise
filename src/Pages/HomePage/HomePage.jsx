@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import NavWrapper from "../../Components/NavWrapper/NavWrapper";
 import "./HomePage.css";
 
 function HomePage() {
+  const navigate = useNavigate();
   return (
     <div className="homepagewrapper">
       <NavWrapper />
@@ -16,7 +18,11 @@ function HomePage() {
           <br />
           experiences and show your friends how you have wandered the world.
         </p>
-        <button className="button-3" role="button">
+        <button
+          onClick={() => navigate("/login")}
+          className="button-3"
+          role="button"
+        >
           START TRACKING NOW
         </button>
       </div>
