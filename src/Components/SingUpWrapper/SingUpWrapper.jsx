@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
 import "./SingUpWrapper.css";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../userSlice/userSlice";
+import { useNavigate } from "react-router-dom";
 function SingUpWrapper() {
   const {
     register,
@@ -8,16 +11,19 @@ function SingUpWrapper() {
     watch,
   } = useForm();
   const password = watch("password");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function onSubmit(data) {
-    console.log(data);
+    dispatch(registerUser(data));
+    navigate("/login");
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="signupformwrapper">
       <div className="emailwrapper">
         <p>Email address</p>
         <input
-          {...register("emailadress", {
+          {...register("email", {
             required: "Email is required",
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -27,7 +33,7 @@ function SingUpWrapper() {
           type="text"
           placeholder="ABC@gmail.com"
         />
-        {errors?.emailadress && <span>{errors?.emailadress?.message}</span>}
+        {errors?.email && <span>{errors?.email?.message}</span>}
       </div>
       <div className="passwordpass">
         <p>Password</p>
@@ -53,7 +59,7 @@ function SingUpWrapper() {
         )}
       </div>
       <div className="btnloginwrapper">
-        <button className="button-38" role="button">
+        <button role="button" className="button-38">
           Register
         </button>
       </div>

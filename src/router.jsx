@@ -5,6 +5,9 @@ import Pricing from "./Pages/Pricing/Pricing";
 import Product from "./Pages/Product/Product";
 import Login from "./Pages/Login/Login";
 import SingUp from "./Pages/SingUp/SingUp";
+import App from "./Pages/App/App";
+import Cities from "./Components/Cities/Cities";
+import Countries from "./Components/Countries/Countries";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +37,20 @@ const router = createBrowserRouter([
       {
         path: "singup",
         element: <SingUp />,
+      },
+      {
+        path: "app",
+        element: <App />,
+        children: [
+          {
+            path: "cities",
+            element: <Cities />,
+          },
+          {
+            path: "countries",
+            element: <Countries />,
+          },
+        ],
       },
     ],
   },
