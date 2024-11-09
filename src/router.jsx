@@ -6,8 +6,8 @@ import Product from "./Pages/Product/Product";
 import Login from "./Pages/Login/Login";
 import SingUp from "./Pages/SingUp/SingUp";
 import App from "./Pages/App/App";
-import Cities from "./Components/Cities/Cities";
 import Countries from "./Components/Countries/Countries";
+import CitiesItem from "./Components/CitiesItem/CitiesItem";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +44,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "cities",
-            element: <Cities />,
+            element: <CitiesItem />,
+          },
+          {
+            path: "/app",
+            element: <CitiesItem />,
           },
           {
             path: "countries",

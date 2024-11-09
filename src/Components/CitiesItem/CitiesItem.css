@@ -1,0 +1,56 @@
+/* 3 */
+
+.citiesitemwrapper {
+  position: absolute;
+  top: 220px;
+  background-color: #42484d;
+  width: 460px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.citiescontainer {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+  /* background-color: red; */
+}
+
+.iconcitiesname {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 70px;
+}
+
+.citiescontainer p {
+  font-family: "Roboto Mono", serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+  text-align: left;
+}
+
+.datebuttonname {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 190px;
+}
+
+.datebuttonname button {
+  background: none;
+  border: none;
+}

@@ -1,10 +1,11 @@
-import { Outlet } from "react-router-dom";
 import "./App.css";
+import CitiesCountry from "../../Components/Cities/CitiesCountry";
+
 function App() {
   return (
     <div className="appwrapper">
       <div className="leftwrapper">
-        <Outlet />
+        <CitiesCountry />
       </div>
       <div className="rightwrapper"></div>
     </div>
