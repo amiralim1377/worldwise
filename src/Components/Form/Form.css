@@ -38,9 +38,11 @@
 }
 
 .dataofadventur {
-  width: 100%;
+  width: 400px;
 }
-.dataofadventur input {
+
+.dataofadventur .datepicker {
+  width: 400px;
   border-radius: 10px;
   border: none;
   -webkit-border-radius: 10px;

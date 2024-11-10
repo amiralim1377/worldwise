@@ -2,9 +2,13 @@ import { useSearchParams } from "react-router-dom";
 import "./Form.css";
 import { useQuery } from "@tanstack/react-query";
 import getreversegeocodingaPI from "../../services/getreversegeocodingaPI";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Commet } from "react-loading-indicators";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 function Form() {
+  const [startDate, setStartDate] = useState(new Date());
   const [searchParams] = useSearchParams();
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
@@ -45,11 +49,17 @@ function Form() {
         <input
           type="text"
           value={`${country} ${city} ${Region}${village}`.trim()}
+          readOnly
         />
       </div>
       <div className="dataofadventur">
         <label htmlFor="">When did you go to Hontoba?</label>
-        <input type="text" />
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          className="datepicker"
+          dateFormat="yyyy/MM/dd"
+        />
       </div>
       <div className="noteofadventur">
         <label htmlFor="">Notes about your trip to Hontoba</label>
