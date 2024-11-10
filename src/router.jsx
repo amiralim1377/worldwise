@@ -8,6 +8,7 @@ import SingUp from "./Pages/SingUp/SingUp";
 import App from "./Pages/App/App";
 import Countries from "./Components/Countries/Countries";
 import CitiesItem from "./Components/CitiesItem/CitiesItem";
+import Form from "./Components/Form/Form";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
           {
             path: "countries",
             element: <Countries />,
+          },
+          {
+            path: "form",
+            element: <Form />,
           },
         ],
       },
