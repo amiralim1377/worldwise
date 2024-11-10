@@ -1,9 +1,25 @@
-import { Marker, Popup } from "react-leaflet";
-
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMapEvent,
+} from "react-leaflet";
 import "./Map.css";
+import { useNavigate } from "react-router-dom";
 
 function Map() {
+  const MapClickHandler = () => {
+    const navigate = useNavigate();
+    useMapEvent({
+      click: (e) => {
+        const { lat, lng } = e.latlng;
+        navigate(`/app/form?lat=${lat}&lng=${lng}`);
+      },
+    });
+    return null;
+  };
+
   return (
     <div id="map">
       <MapContainer
@@ -24,6 +40,7 @@ function Map() {
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
+        <MapClickHandler />
       </MapContainer>
     </div>
   );

@@ -1,8 +1,8 @@
-import "./App.css";
+import "./Application .css";
 import CitiesCountry from "../../Components/Cities/CitiesCountry";
 import Map from "../../Components/Map/Map";
 
-function App() {
+function Application() {
   return (
     <div className="appwrapper">
       <div className="leftwrapper">
@@ -15,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default Application;
