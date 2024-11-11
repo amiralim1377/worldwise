@@ -1,6 +1,14 @@
+import { useDispatch } from "react-redux";
 import "./CitiesItem.css";
+import { deleteTrip } from "../../tripSlice/tripSlice";
 
 function CitiesItem({ cityitem }) {
+  const dispatch = useDispatch();
+
+  const handledeletecity = (id) => {
+    dispatch(deleteTrip(id));
+  };
+
   return (
     <li className="citiescontainer">
       <div className="iconcitiesname">
@@ -8,7 +16,7 @@ function CitiesItem({ cityitem }) {
       </div>
       <div className="datebuttonname">
         <p>{`(${cityitem?.date})`}</p>
-        <button>❌</button>
+        <button onClick={() => handledeletecity(cityitem.id)}>❌</button>
       </div>
     </li>
   );

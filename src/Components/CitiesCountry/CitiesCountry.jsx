@@ -1,17 +1,30 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import "./CitiesCountry.css";
 function CitiesCountry() {
-  const navigate = useNavigate();
   return (
     <div className="citieswrapper">
       <div className="citieslogowrapper">
-        <img src="/public/images/logo.png" alt="" />
+        <Link to="/">
+          <img src="/public/images/logo.png" alt="" />
+        </Link>
       </div>
       <div className="citiesbtnwrapper">
-        <button onClick={() => navigate("cities")}>CITIES</button>
-        <button onClick={() => navigate("countries")}>COUNTRIES</button>
+        <NavLink
+          className={({ isActive }) => (isActive ? "activ-link" : "")}
+          to="cities"
+        >
+          <button>CITIES</button>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "activ-link" : "")}
+          to="countries"
+        >
+          <button>COUNTRIES</button>
+        </NavLink>
       </div>
-      <Outlet />
+      <div className="outletwrapper">
+        <Outlet />
+      </div>
     </div>
   );
 }

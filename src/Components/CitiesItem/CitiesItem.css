@@ -7,8 +7,8 @@
   grid-template-columns: repeat(2, 200px);
   gap: 5px;
 
-  /* background-color: blue; */
   background-color: #42484d;
+  /* background-color: blue; */
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -30,8 +30,7 @@
 .citiescontainer p {
   font-family: "Roboto Mono", serif;
   font-size: 12px;
-  font-weight: 400;
-  font-style: normal;
+  font-weight: 600;
   color: white;
   text-align: left;
 }
@@ -43,8 +42,18 @@
   /* background-color: red; */
   width: 190px;
 }
+.datebuttonname p {
+  font-family: "Roboto Mono", serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+}
 
 .datebuttonname button {
   background: none;
   border: none;
+}
+
+.datebuttonname button:hover {
+  scale: 1.25;
 }
