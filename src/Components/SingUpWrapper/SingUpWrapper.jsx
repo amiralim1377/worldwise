@@ -59,7 +59,7 @@ function SingUpWrapper() {
         )}
       </div>
       <div className="btnloginwrapper">
-        <button role="button" className="button-38">
+        <button type="submit" role="button" className="button-38">
           Register
         </button>
       </div>

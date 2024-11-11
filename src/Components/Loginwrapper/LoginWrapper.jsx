@@ -14,7 +14,7 @@ function LoginWrapper() {
   } = useForm();
 
   const isAuthenticated = useSelector((state) => state?.user?.isAuthenticated);
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
 
   function onSubmit(data) {
     // console.log(data);

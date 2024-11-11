@@ -1,11 +1,15 @@
 import { useSearchParams } from "react-router-dom";
 import "./Form.css";
 import { useQuery } from "@tanstack/react-query";
-import getreversegeocodingaPI from "../../services/getreversegeocodingaPI";
+import { useNavigate } from "react-router-dom";
 
 import { Commet } from "react-loading-indicators";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import getreversegeocodingaPI from "../../services/getreversegeocodingaPI";
+import { useDispatch } from "react-redux";
+import { addTrip } from "../../tripSlice/tripSlice";
 
 function Form() {
   const {
@@ -15,6 +19,8 @@ function Form() {
     formState: { errors },
     setValue,
   } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
   const lat = searchParams.get("lat");
@@ -44,7 +50,8 @@ function Form() {
       const region = citydata.results[0]?.components?.region || "";
       const village = citydata.results[0]?.components?.village || "";
       setLocation({ country, city, region, village });
-      setValue("city", `${country} ${city} ${region} ${village}`.trim());
+      const locationValue = `${country} ${city || region || village}`.trim();
+      setValue("city", locationValue);
     }
   }, [citydata, setValue]);
 
@@ -60,8 +67,12 @@ function Form() {
     );
 
   function onSubmit(data) {
-    console.log(data);
-    reset();
+    if (data) {
+      const newdata = { ...data, id: uuidv4() };
+      dispatch(addTrip(newdata));
+      navigate("/app/cities");
+      reset();
+    }
   }
 
   return (

@@ -1,5 +1,5 @@
 import "./Application .css";
-import CitiesCountry from "../../Components/Cities/CitiesCountry";
+import CitiesCountry from "../../Components/CitiesCountry/CitiesCountry";
 import Map from "../../Components/Map/Map";
 
 function Application() {

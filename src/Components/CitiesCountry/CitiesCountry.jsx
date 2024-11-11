@@ -11,7 +11,6 @@ function CitiesCountry() {
         <button onClick={() => navigate("cities")}>CITIES</button>
         <button onClick={() => navigate("countries")}>COUNTRIES</button>
       </div>
-
       <Outlet />
     </div>
   );

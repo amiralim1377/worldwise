@@ -5,11 +5,12 @@ import Pricing from "./Pages/Pricing/Pricing";
 import Product from "./Pages/Product/Product";
 import Login from "./Pages/Login/Login";
 import SingUp from "./Pages/SingUp/SingUp";
-import App from "./Pages/Application/Application ";
 import Countries from "./Components/Countries/Countries";
 import CitiesItem from "./Components/CitiesItem/CitiesItem";
 import Form from "./Components/Form/Form";
 import Application from "./Pages/Application/Application ";
+
+import Cities from "./Cities/Cities";
 
 const router = createBrowserRouter([
   {
@@ -46,11 +47,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "cities",
-            element: <CitiesItem />,
+            element: <Cities />,
           },
           {
             path: "/app",
-            element: <CitiesItem />,
+            element: <Cities />,
           },
           {
             path: "countries",
