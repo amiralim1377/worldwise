@@ -5,7 +5,6 @@ export default async function getreversegeocodingaPI(lat, lng) {
     `https://api.opencagedata.com/geocode/v1/json?q=${lat}%2C${lng}&key=${API_key}`
   );
   const data = await res.json();
-  console.log(lat, lng);
 
   return data;
 }

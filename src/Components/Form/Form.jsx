@@ -2,37 +2,51 @@ import { useSearchParams } from "react-router-dom";
 import "./Form.css";
 import { useQuery } from "@tanstack/react-query";
 import getreversegeocodingaPI from "../../services/getreversegeocodingaPI";
-import { useEffect, useState } from "react";
+
 import { Commet } from "react-loading-indicators";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 
 function Form() {
-  const [startDate, setStartDate] = useState(new Date());
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+    setValue,
+  } = useForm();
+
   const [searchParams] = useSearchParams();
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
+
+  const [location, setLocation] = useState({
+    country: "",
+    city: "",
+    region: "",
+    village: "",
+  });
+
   const {
     isLoading,
     data: citydata,
     error,
-    refetch,
   } = useQuery({
     queryKey: ["lat-lng", lat, lng],
     queryFn: () => getreversegeocodingaPI(lat, lng),
-    enabled: !!lat && !!lng,
   });
+  // console.log(citydata);
 
   useEffect(() => {
-    if (lat && lng) {
-      refetch();
+    if (citydata) {
+      const country = citydata.results[0]?.components?.country || "";
+      const city = citydata.results[0]?.components?.city || "";
+      const region = citydata.results[0]?.components?.region || "";
+      const village = citydata.results[0]?.components?.village || "";
+      setLocation({ country, city, region, village });
+      setValue("city", `${country} ${city} ${region} ${village}`.trim());
     }
-  }, [lat, lng, refetch]);
-
-  const country = citydata?.results[0]?.components?.country || "";
-  const city = citydata?.results[0]?.components?.city || "";
-  const Region = citydata?.results[0]?.components?.region || "";
-  const village = citydata?.results[0]?.components?.village || "";
+  }, [citydata, setValue]);
 
   if (isLoading)
     return (
@@ -40,36 +54,61 @@ function Form() {
     );
   if (error) return <div>Error fetching city data</div>;
 
+  if (!citydata)
+    return (
+      <Commet color="#4c74b3" size="large" text="loading" textColor="#ffffff" />
+    );
+
+  function onSubmit(data) {
+    console.log(data);
+    reset();
+  }
+
   return (
-    <div className="formwrapper">
+    <form onSubmit={handleSubmit(onSubmit)} className="formwrapper">
       <div className="cityname">
         <label htmlFor="" className="labelform">
           City name
         </label>
         <input
           type="text"
-          value={`${country} ${city} ${Region}${village}`.trim()}
-          readOnly
+          value={`${location?.country} ${location?.city} ${location.region} ${location.village}`.trim()}
+          {...register("city", { required: "just click on the Map" })}
         />
+        {errors?.city && <span>{errors?.city?.message}</span>}
       </div>
       <div className="dataofadventur">
-        <label htmlFor="">When did you go to Hontoba?</label>
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
+        <label htmlFor="">
+          When did you go to{" "}
+          {location?.city || location.region || location.village}?
+        </label>
+        <input
+          {...register("date", {
+            required: "please select a date",
+          })}
           className="datepicker"
-          dateFormat="yyyy/MM/dd"
+          type="date"
         />
+        {errors?.date && <span>{errors?.date?.message}</span>}
       </div>
       <div className="noteofadventur">
-        <label htmlFor="">Notes about your trip to Hontoba</label>
-        <input type="text" name="" id="" />
+        <label htmlFor="">
+          Notes about your trip to {"  "}
+          {location?.city || location.region || location.village}
+        </label>
+        <input
+          type="text"
+          {...register("note", {
+            required: "please write a Notes about your trip",
+          })}
+        />
+        {errors?.note && <span>{errors?.note?.message}</span>}
       </div>
       <div className="formbtn">
-        <button>Add</button>
+        <button type="submit">Add</button>
         <button>Back</button>
       </div>
-    </div>
+    </form>
   );
 }
 

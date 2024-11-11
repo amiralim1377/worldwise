@@ -9,8 +9,8 @@ import "./Map.css";
 import { useNavigate } from "react-router-dom";
 
 function Map() {
+  const navigate = useNavigate();
   const MapClickHandler = () => {
-    const navigate = useNavigate();
     useMapEvent({
       click: (e) => {
         const { lat, lng } = e.latlng;
