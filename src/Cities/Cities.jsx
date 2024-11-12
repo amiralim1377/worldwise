@@ -4,9 +4,10 @@ import "./Cities.css";
 
 function Cities() {
   const cities = useSelector((state) => state?.trip?.alltrip);
+
   const isAddedTrip = useSelector((state) => state.trip.isAddedTrip);
 
-  if (!isAddedTrip || !cities)
+  if (!isAddedTrip || !cities || cities.length == 0)
     return (
       <div className="citiesError">
         👋 Add your first city by clicking on a city on the map

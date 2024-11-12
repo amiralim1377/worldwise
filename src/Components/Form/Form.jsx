@@ -115,7 +115,7 @@ function Form() {
       </div>
       <div className="formbtn">
         <button type="submit">Add</button>
-        <button>Back</button>
+        <button onClick={() => navigate(-1)}>Back</button>
       </div>
     </form>
   );

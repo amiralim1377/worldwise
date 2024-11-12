@@ -48,6 +48,23 @@
   color: white;
 }
 
+.datebuttonname button:first-of-type {
+  background: none;
+  background-color: #7fbd58;
+  border: none;
+  cursor: pointer;
+  font-family: "Roboto Mono", serif;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
 .datebuttonname button {
   background: none;
   border: none;
@@ -59,5 +76,5 @@
 }
 
 .datebuttonname button:hover {
-  scale: 1.25;
+  scale: 1.15;
 }

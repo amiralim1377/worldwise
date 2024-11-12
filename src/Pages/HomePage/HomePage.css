@@ -34,7 +34,8 @@
   line-height: 50px;
   text-align: center;
   padding: 10px;
-  color: #c5d3e8;
+  /* color: #c5d3e8; */
+  color: white;
 }
 
 /* button */
