@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import "./LoginWrapper.css";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../userSlice/userSlice";
 import { useEffect } from "react";
+import "./LoginWrapper.css";
 function LoginWrapper() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function LoginWrapper() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="formwrapper">
+    <form onSubmit={handleSubmit(onSubmit)} className="formwrapperlogin">
       <div className="emailwrapper">
         <p>Email address</p>
         <input

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   alltrip: [],
   isAddedTrip: false,
+  selectedCity: null,
 };
 
 const tripSlice = createSlice({
@@ -18,9 +19,12 @@ const tripSlice = createSlice({
         (item) => item.id !== action.payload
       );
     },
+    setSelectedCity(state, action) {
+      state.selectedCity = action.payload;
+    },
   },
 });
 
-export const { addTrip, deleteTrip } = tripSlice.actions;
+export const { addTrip, deleteTrip, setSelectedCity } = tripSlice.actions;
 
 export default tripSlice.reducer;

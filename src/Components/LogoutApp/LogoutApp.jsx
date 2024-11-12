@@ -3,7 +3,7 @@ import "./LogoutApp.css";
 import { logoutUser } from "../../userSlice/userSlice";
 import { useNavigate } from "react-router-dom";
 function LogoutApp() {
-  const user = useSelector((state) => state?.user?.user[0].email);
+  const user = useSelector((state) => state?.user?.user[0]?.email);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const hanlelogout = () => {

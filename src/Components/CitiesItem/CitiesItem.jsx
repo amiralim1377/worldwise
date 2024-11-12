@@ -1,9 +1,13 @@
 import { useDispatch } from "react-redux";
 import "./CitiesItem.css";
-import { deleteTrip } from "../../tripSlice/tripSlice";
+import { deleteTrip, setSelectedCity } from "../../tripSlice/tripSlice";
 
 function CitiesItem({ cityitem }) {
   const dispatch = useDispatch();
+
+  const cityClickHandler = (city) => {
+    dispatch(setSelectedCity(city));
+  };
 
   const handledeletecity = (id) => {
     dispatch(deleteTrip(id));
@@ -16,6 +20,7 @@ function CitiesItem({ cityitem }) {
       </div>
       <div className="datebuttonname">
         <p>{`(${cityitem?.date})`}</p>
+        <button onClick={() => cityClickHandler(cityitem)}>set view</button>
         <button onClick={() => handledeletecity(cityitem.id)}>❌</button>
       </div>
     </li>

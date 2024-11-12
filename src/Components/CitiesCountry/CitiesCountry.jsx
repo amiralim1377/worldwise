@@ -15,12 +15,6 @@ function CitiesCountry() {
         >
           <button>CITIES</button>
         </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? "activ-link" : "")}
-          to="countries"
-        >
-          <button>COUNTRIES</button>
-        </NavLink>
       </div>
       <div className="outletwrapper">
         <Outlet />

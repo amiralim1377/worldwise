@@ -2,7 +2,6 @@ import { useSearchParams } from "react-router-dom";
 import "./Form.css";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-
 import { Commet } from "react-loading-indicators";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
@@ -41,7 +40,6 @@ function Form() {
     queryKey: ["lat-lng", lat, lng],
     queryFn: () => getreversegeocodingaPI(lat, lng),
   });
-  // console.log(citydata);
 
   useEffect(() => {
     if (citydata) {
@@ -68,7 +66,7 @@ function Form() {
 
   function onSubmit(data) {
     if (data) {
-      const newdata = { ...data, id: uuidv4() };
+      const newdata = { ...data, lat, lng, id: uuidv4() };
       dispatch(addTrip(newdata));
       navigate("/app/cities");
       reset();
@@ -76,7 +74,7 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="formwrapper">
+    <form onSubmit={handleSubmit(onSubmit)} className="formwrapperapp">
       <div className="cityname">
         <label htmlFor="" className="labelform">
           City name
