@@ -1,6 +1,7 @@
 import "./Application .css";
 import CitiesCountry from "../../Components/CitiesCountry/CitiesCountry";
 import Map from "../../Components/Map/Map";
+import LogoutApp from "../../Components/LogoutApp/LogoutApp";
 
 function Application() {
   return (
@@ -9,6 +10,7 @@ function Application() {
         <CitiesCountry />
       </div>
       <div className="rightwrapper">
+        <LogoutApp />
         <Map />
       </div>
     </div>

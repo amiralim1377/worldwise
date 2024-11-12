@@ -1,0 +1,46 @@
+.loginlogoout {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 390px;
+  height: 60px;
+  background-color: #2d3439;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.loginlogoout p {
+  font-family: "Roboto Mono", serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+  text-align: left;
+  margin: 0;
+  /* background-color: red; */
+}
+
+.loginlogoout button {
+  background-color: #42484d;
+  border: none;
+  color: antiquewhite;
+  font-family: "Roboto Mono", serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
