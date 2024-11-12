@@ -6,7 +6,10 @@ function Product() {
       <NavWrapper />
       <div className="contentwrapper">
         <div className="leftwrapper">
-          <img src="/public/images/img-1.jpg" alt="" />
+          <img
+            src="https://raw.githubusercontent.com/amiralim1377/worldwise/refs/heads/main/public/images/img-1.jpg"
+            alt="worldwise"
+          />
         </div>
         <div className="rightwrapper">
           <h2>About WorldWide.</h2>

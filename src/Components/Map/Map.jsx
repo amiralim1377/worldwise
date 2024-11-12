@@ -14,7 +14,7 @@ import { useEffect } from "react";
 
 function Map() {
   const cities = useSelector((state) => state.trip.alltrip);
-  console.log(cities);
+  // console.log(cities);
   const dispatch = useDispatch();
 
   const selectedCity = useSelector((state) => state.trip.selectedCity);

@@ -18,7 +18,10 @@ function Pricing() {
           </p>
         </div>
         <div className="contentimage">
-          <img src="/public/images/img-2.jpg" alt="" />
+          <img
+            src="https://raw.githubusercontent.com/amiralim1377/worldwise/refs/heads/main/public/images/img-2.jpg"
+            alt="worldwise"
+          />
         </div>
       </div>
     </div>

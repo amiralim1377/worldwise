@@ -5,7 +5,10 @@ function CitiesCountry() {
     <div className="citieswrapper">
       <div className="citieslogowrapper">
         <Link to="/">
-          <img src="/public/images/logo.png" alt="" />
+          <img
+            src="https://raw.githubusercontent.com/amiralim1377/worldwise/refs/heads/main/public/images/logo.png"
+            alt="worldwise"
+          />
         </Link>
       </div>
       <div className="citiesbtnwrapper">

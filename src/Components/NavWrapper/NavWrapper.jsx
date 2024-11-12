@@ -7,7 +7,10 @@ function NavWrapper() {
     <div className="NavWrapper">
       <div className="logowrapper">
         <Link to="/">
-          <img src="/public/images/logo.png" alt="logo" />
+          <img
+            src="https://raw.githubusercontent.com/amiralim1377/worldwise/refs/heads/main/public/images/logo.png"
+            alt="logo"
+          />
         </Link>
       </div>
       <div className="navwrapperlink">
