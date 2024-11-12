@@ -14,7 +14,8 @@ function LoginWrapper() {
   } = useForm();
 
   const isAuthenticated = useSelector((state) => state?.user?.isAuthenticated);
-  // console.log(isAuthenticated);
+  const isUser = useSelector((state) => state?.user?.user);
+  console.log(isUser.length);
 
   function onSubmit(data) {
     // console.log(data);
@@ -46,16 +47,29 @@ function LoginWrapper() {
         {errors?.password && <p role="alert">{errors?.password.message}</p>}
       </div>
       <div className="btnloginwrapper">
-        <button type="submit" className="button-37" role="button">
-          Login
-        </button>
-        <button
-          onClick={() => navigate("/singup")}
-          className="button-38"
-          role="button"
-        >
-          SING UP
-        </button>
+        {isUser.length > 0 ? (
+          <>
+            <button type="submit" className="button-37" role="button">
+              Login
+            </button>
+
+            <button
+              onClick={() => navigate("/singup")}
+              className="button-38"
+              role="button"
+            >
+              SING UP
+            </button>
+          </>
+        ) : (
+          <button
+            onClick={() => navigate("/singup")}
+            className="button-38"
+            role="button"
+          >
+            SING UP
+          </button>
+        )}
       </div>
     </form>
   );

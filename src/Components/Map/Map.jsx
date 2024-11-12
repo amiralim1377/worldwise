@@ -8,11 +8,14 @@ import {
 } from "react-leaflet";
 import "./Map.css";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedCity } from "../../tripSlice/tripSlice";
+import { useEffect } from "react";
 
 function Map() {
   const cities = useSelector((state) => state.trip.alltrip);
   console.log(cities);
+  const dispatch = useDispatch();
 
   const selectedCity = useSelector((state) => state.trip.selectedCity);
   const navigate = useNavigate();
@@ -43,7 +46,7 @@ function Map() {
         />
 
         {cities.map((cityitem) => (
-          <Marker key={cities.id} position={[cityitem.lat, cityitem.lng]}>
+          <Marker key={cityitem.id} position={[cityitem.lat, cityitem.lng]}>
             <Popup>
               {cityitem.city} <br /> {cityitem.note}
             </Popup>
@@ -51,15 +54,24 @@ function Map() {
         ))}
 
         <MapClickHandler />
-        {selectedCity && <FlyToLocation city={selectedCity} />}
+        {selectedCity && (
+          <FlyToLocation city={selectedCity} dispatch={dispatch} />
+        )}
       </MapContainer>
     </div>
   );
 }
 
-function FlyToLocation({ city }) {
+function FlyToLocation({ city, dispatch }) {
   const map = useMap();
-  map.setView([city.lat, city.lng], 12);
+  useEffect(() => {
+    if (city) {
+      map.setView([city?.lat, city?.lng], 12, {
+        animate: true,
+      });
+      dispatch(setSelectedCity(null));
+    }
+  }, [city, map, dispatch]);
   return null;
 }
 
